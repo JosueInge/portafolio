@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contacto | Wilfredo Josue</title>
+
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="estilos_contacto.css">
+
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="encabezado">
+
+    <div class="logo">
+        <img src="imagenes/logoportafolio.png" alt="Logo">
+    </div>
+
+    <nav class="menu">
+
+        <a href="index.php"
+           data-es="INICIO"
+           data-en="HOME">
+            INICIO
+        </a>
+
+    </nav>
+
+    <div class="idiomas">
+
+        <div class="idioma activo" id="btn-es">
+            ESP
+        </div>
+
+        <div class="idioma" id="btn-en">
+            ENG
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= CONTENIDO ================= -->
+
+<section class="contacto-container">
+
+    <h1 class="titulo-contacto"
+        data-es="CONTÁCTAME"
+        data-en="CONTACT ME">
+        CONTÁCTAME
+    </h1>
+
+
+    <p class="subtitulo-contacto"
+       data-es="Contáctame sobre cualquier oportunidad o consulta relacionada con mi área de conocimientos."
+       data-en="Contact me regarding any opportunity or inquiry related to my field of expertise.">
+
+        Contáctame sobre cualquier oportunidad o consulta relacionada con mi área de conocimientos.
+
+    </p>
+
+
+    <div class="contacto-grid">
+
+
+        <!-- ================= FORMULARIO ================= -->
+
+        <div class="formulario-contacto">
+
+            <form
+                action="https://formsubmit.co/wilfredojosue438@gmail.com"
+                method="POST">
+
+
+                <!-- CONFIGURACIÓN FORMSUBMIT -->
+
+                <input
+                    type="hidden"
+                    name="_subject"
+                    value="Nuevo mensaje desde mi portafolio">
+
+                <input
+                    type="hidden"
+                    name="_captcha"
+                    value="false">
+
+                <input
+                    type="hidden"
+                    name="_template"
+                    value="table">
+
+                <input
+                    type="hidden"
+                    name="_next"
+                    value="https://wilfredojosuedev.com">
+
+
+                <!-- NOMBRE / TELÉFONO -->
+
+                <div class="fila">
+
+                    <div class="campo">
+
+                        <label
+                            data-es="Nombre *"
+                            data-en="Name *">
+
+                            Nombre *
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="nombre"
+                            required>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label
+                            data-es="Número de teléfono"
+                            data-en="Phone Number">
+
+                            Número de teléfono
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="telefono">
+
+                    </div>
+
+                </div>
+
+
+                <!-- CORREO / EMPRESA -->
+
+                <div class="fila">
+
+                    <div class="campo">
+
+                        <label
+                            data-es="Correo electrónico *"
+                            data-en="Email *">
+
+                            Correo electrónico *
+
+                        </label>
+
+                        <input
+                            type="email"
+                            name="correo"
+                            required>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label
+                            data-es="Empresa"
+                            data-en="Company">
+
+                            Empresa
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="empresa">
+
+                    </div>
+
+                </div>
+
+
+                <!-- ASUNTO -->
+
+                <div class="campo">
+
+                    <label
+                        data-es="Asunto *"
+                        data-en="Subject *">
+
+                        Asunto *
+
+                    </label>
+
+                    <input
+                        type="text"
+                        name="asunto"
+                        required>
+
+                </div>
+
+
+                <!-- DESCRIPCIÓN -->
+
+                <div class="campo">
+
+                    <label
+                        data-es="Descripción *"
+                        data-en="Description *">
+
+                        Descripción *
+
+                    </label>
+
+                    <textarea
+                        name="descripcion"
+                        rows="7"
+                        required></textarea>
+
+                </div>
+
+
+                <!-- BOTÓN -->
+
+                <button
+                    type="submit"
+                    class="btn-enviar"
+                    data-es="ENVIAR"
+                    data-en="SEND">
+
+                    ENVIAR
+
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- ================= INFORMACIÓN DE CONTACTO ================= -->
+
+        <div class="info-contacto">
+
+            <h2
+                data-es="MI CONTACTO"
+                data-en="MY CONTACT">
+
+                MI CONTACTO
+
+            </h2>
+
+
+            <div class="info-item">
+
+                <span>
+                    wilfredojosue438@gmail.com
+                </span>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <span>
+                    +503 7061 3814
+                </span>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <span
+                    data-es="Usulután, El Salvador"
+                    data-en="Usulutan, El Salvador">
+
+                    Usulután, El Salvador
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<?php include("footer.php"); ?>
+
+
+<!-- ================= TRADUCTOR ================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const btnES = document.getElementById("btn-es");
+    const btnEN = document.getElementById("btn-en");
+
+    const elementosTraducibles =
+        document.querySelectorAll("[data-es]");
+
+
+    function cambiarIdioma(idioma) {
+
+        elementosTraducibles.forEach(function (elemento) {
+
+            const texto =
+                elemento.getAttribute("data-" + idioma);
+
+            if (texto) {
+
+                elemento.textContent = texto;
+
+            }
+
+        });
+
+
+        if (idioma === "es") {
+
+            btnES.classList.add("activo");
+            btnEN.classList.remove("activo");
+
+            document.documentElement.lang = "es";
+
+        } else {
+
+            btnEN.classList.add("activo");
+            btnES.classList.remove("activo");
+
+            document.documentElement.lang = "en";
+
+        }
+
+    }
+
+
+    btnES.addEventListener("click", function () {
+
+        cambiarIdioma("es");
+
+    });
+
+
+    btnEN.addEventListener("click", function () {
+
+        cambiarIdioma("en");
+
+    });
+
+
+    // Idioma inicial
+
+    cambiarIdioma("es");
+
+});
+
+</script>
+
+
+</body>
+
+</html>

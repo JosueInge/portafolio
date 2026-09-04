@@ -1,0 +1,252 @@
+    /* ===========================
+   CONTENEDOR PRINCIPAL
+=========================== */
+
+.contacto-container{
+    width: 90%;
+    max-width: 1300px;
+    margin: 70px auto;
+}
+
+.titulo-contacto{
+    text-align: center;
+    font-family: Arial Black, sans-serif;
+    font-size: 32px;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.subtitulo-contacto{
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 60px;
+}
+
+
+/* ===========================
+   GRID PRINCIPAL
+=========================== */
+
+.contacto-grid{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+
+/* ===========================
+   FORMULARIO
+=========================== */
+
+.formulario-contacto{
+    flex: 2;
+}
+
+.fila{
+    display: flex;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.campo label{
+    font-family: Arial Black;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #000;
+}
+
+.campo input{
+    width: 100%;
+    height: 52px;
+    border: 2px solid #D7D7D7;
+    border-radius: 10px;
+    padding-left: 15px;
+    font-size: 16px;
+    font-family: Arial;
+    outline: none;
+    transition: 1.3s;
+}
+
+.campo textarea{
+    width: 100%;
+    border: 2px solid #D7D7D7;
+    border-radius: 10px;
+    padding: 15px;
+    resize: none;
+    font-size: 16px;
+    font-family: Arial;
+    outline: none;
+    transition: .3s;
+}
+
+/* EFECTO AL SELECCIONAR */
+.campo input:focus,
+.campo textarea:focus{
+    border-color: #0BF6BF;
+    box-shadow: 0 0 8px rgba(11,246,191,.35);
+}
+
+
+/* ===========================
+   BOTÓN
+=========================== */
+
+.btn-enviar{
+    width: 180px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background: #0BF6BF;
+    color: #000;
+    font-family: Arial Black;
+    font-size: 18px;
+    cursor: pointer;
+    transition: .3s;
+    margin-top: 20px;
+
+}
+
+.btn-enviar:hover{
+    transform: translateY(-2px);
+    opacity: .92;
+}
+
+
+/* ===========================
+   PANEL DERECHO
+=========================== */
+
+.info-contacto{
+    width: 360px;
+    background: #e8ebeb;
+    border-radius: 10px;
+    padding: 35px;
+    box-sizing: border-box;
+}
+
+.info-contacto h2{
+    font-family: Arial Black;
+    font-size: 24px;
+    margin-bottom: 40px;
+    color: #000;
+}
+
+.info-item{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 35px;
+    font-family: Arial;
+    font-size: 18px;
+    color: #000;
+}
+
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:900px){
+
+    .contacto-grid{
+        flex-direction: column;
+
+    }
+
+    .info-contacto{
+        width: 100%;
+    }
+
+    .fila{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .btn-enviar{
+        width: 100%;
+    }
+
+}
+@media (max-width: 768px) {
+    body{
+        overflow-x: hidden;
+    }
+
+    .encabezado{
+        padding: 15px 20px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .logo img{
+        width: 120px;
+        height: auto;
+    }
+
+    .menu{
+        gap: 20px;
+    }
+
+    .menu a{
+        font-size: 18px;
+    }
+
+    .contenedor-contacto{
+        width: 100%;
+        padding: 25px;
+        box-sizing: border-box;
+    }
+
+    .formulario{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .fila{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .campo{
+        width: 100%;
+    }
+
+    input,
+    textarea{
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    textarea{
+        min-height: 180px;
+    }
+
+    .btn-enviar{
+        width: 100%;
+    }
+
+    .info-contacto{
+        margin-top: 40px;
+        width: 100%;
+    }
+
+}
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+   

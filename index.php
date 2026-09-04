@@ -2,229 +2,54 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-<style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="estilos.css">
 
-/* ENCABEADO */
-.encabezado {
-    background-color: white;
-    border-bottom: 2px solid #0C0101;
-    padding: 20px 0;
-}
-
-.menu {
-    display: flex;
-    justify-content: center;
-}
-
-/* ETIQUETAS DEL MENU */
-.menu a {
-    font-family: "Arial Black", Arial, sans-serif;
-    font-size: 16px;
-    color: #0C0101;
-    text-decoration: none;
-    margin: 0 61px;
-}
-
-/* EFECTO AL PASAR */
-.menu a:hover{
-    text-decoration: underline;
-}
-
-
-/* SECCCION PRESENTACION */
-.presentacion {
-    display: flex;
-    align-items: flex-start;
-    gap: 80px;
-    margin-top: 54px;
-    justify-content: center;
-}
-
-/* FOTO */
-.contenedor-foto {
-    position: relative;
-    width: 330px;
-    height: 297px;
-}
-
-.sombra {
-    position: absolute;
-    width: 280px;
-    height: 277px;
-    background-color: #A5B0F5;
-    border-radius: 20px;
-    left: -40px;
-    top: 45px;
-}
-
-.foto {
-    position: absolute;
-    width: 280px;
-    height: 277px;
-    border: 5px solid #000;
-    border-radius: 20px;
-    overflow: hidden;
-    background-color: white;
-}
-
-.foto img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* INFORMACION */
-.info {
-    margin-top: 35px;
-}
-
-.nombre {
-    font-family: "Arial Black", Arial, sans-serif;
-    font-size: 24px;
-    color: #000;
-}
-
-/* BOTONES */
-.descripcion {
-    font-family: Arial, sans-serif;
-    font-size: 20px;
-    color: #000;
-    margin-top: 30px;
-}
-
-.botones {
-    display: flex;
-    gap: 20px;
-    margin-top: 50px;
-}
-
-.contacto {
-    width: 150px;
-    height: 42px;
-    background-color: #0BF6BF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Arial Black", Arial;
-    font-size: 18px;
-    text-decoration: none; 
-    color: #000;
-    border-radius: 10px;
-}
-
-.github {
-    width: 102px;
-    height: 42px;
-    border: 2px solid #000;
-    border-radius: 10px;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 8px;
-    text-decoration: none;
-    color: #000;
-    box-sizing: border-box;
-}
-
-.github span {
-    font-family: "Arial Black", Arial;
-    font-size: 20px;
-}
-
-.github img {
-    width: 35px;
-    height: 35px;
-    object-fit: contain;
-}
-
-/*SEPARADOR */
-.separador {
-    width: 565px;
-    border-bottom: 2px solid #000;
-    margin-top: 60px;
-}
-
-.cuadrodecorativo {
-    position: relative;
-    overflow: hidden;
-    padding: 120px 80px;
-}
-.cuadro-decorativo {
-    position: absolute;
-    width: 230px;
-    height: 197px;
-    border: 20px solid #A5B0F5;
-    border-radius: 25px;
-    right: -120px;
-    top: 140px;
-}
-
-/* SESSION SOBRE MI */
-.sobre-mi {
-    margin-top: 140px;
-    text-align: center;
-}
-
-.titulo-sobre {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
-
-.titulo-sobre h2 {
-    font-family: Arial, sans-serif;
-    font-size: 24px;
-    color: #000;
-}
-
-.linea {
-    width: 98px;
-    height: 2px;
-    background-color: #000;
-}
-
-.descripcion-sobre {
-    margin-top: 20px;
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-    color: #000;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.linkedin {
-    width: 42px;
-    height: 42px;
-    border-radius: 10px;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.linkedin img {
-    width: 34px;
-    height: 34px;
-}
-
-
-</style>
 </head>
 
 <body>
 
 <header class="encabezado">
 
+<div class="logo">
+    <img src="imagenes/logoinge.png" alt="Logo">
+</div>
+
     <nav class="menu">
-        <a href="#">INICIO</a>
-        <a href="#">SOBRE MI</a>
-        <a href="#">INTERESES</a>
-        <a href="#">PROYECTOS</a>
-        <a href="#">CONTACTO</a>
+
+        <a href="#habilidades"
+            data-es="HABILIDADES"
+            data-en="HABILITIES">HABILIDADES</a>
+
+        <a href="#proyectos"
+            data-es="PROYECTOS"
+            data-en="PROJECT"
+                >PROYECTOS</a>
+
+        <a href="#contacto"
+            data-es="CONTACTO"
+            data-en="CONTACT">CONTACTO</a>
+
+            <a href="#certificaciones"
+            data-es="CERTIFICACIONES"
+            data-en="CERTIFICATIONS">CERTIFICACIONES</a>
     </nav>
+
+    <div class="idiomas">
+        <div class="idioma activo" id="btn-es">ESP</div>
+        <div class="idioma" id="btn-en">ENG</div>
+</div>
+
+<script>
+    const idiomas = document.querySelectorAll('.idioma');
+
+    idiomas.forEach(btn => {
+        btn.addEventListener('click', () => {
+            idiomas.forEach(b => b.classList.remove('activo'));
+            btn.classList.add('activo');
+        });
+    });
+</script>
 
 </header>
 
@@ -244,23 +69,36 @@
 
         <h1 class="nombre">WILFREDO JOSUÉ SORTO</h1>
 
-        <p class="descripcion">
+        <p class="descripcion"
+        data-es="Desarrollador FullStack"
+        data-en="Full Stack Developer">
             Desarrollador FullStack
         </p>
 
         <div class="botones">
 
-            <a class="contacto" href="#">
+            <a class="contacto" href="contacto.php"
+                data-es="CONTACTO"
+                data-en="CONTACT">
                 CONTACTO
             </a>
 
-                <a href="https://github.com/josueinge" class="github">
+             <!--  <a href="https://github.com/josueinge" class="github">
                 <span>&lt;/&gt;</span>
                 <img src="imagenes/github.png" alt="GitHub">
-            </a>
+            </a> -->
 
             <a href="https://www.linkedin.com/in/wilfredo-josue-sorto-44a41a3b6/" class="linkedin">
                 <img src="imagenes/linkedin.png" alt="LinkedIn">
+            </a>
+            
+            <a id="btn-cv"
+                href="docs/cv-josue-es.pdf"
+                dowload
+                class="cv"
+                data-es="DESCARGAR CV"
+                data-en="DOWLOAD CV">
+                DESCARGAR CV
             </a>
 
         </div>
@@ -274,19 +112,1124 @@
 <section class="sobre-mi">
 
     <div class="titulo-sobre">
-        <div class="linea"></div>
-        <h3>SOBRE MI</h2>
-        <div class="linea"></div>
+        <h2 data-es="SOBRE MÍ" data-en="ABOUT ME">SOBRE MÍ</h2>
     </div>
 
-    <p class="descripcion-sobre">
-        Soy desarrollador y mi pasion es el desarrollo weby diseño de iconografía e interfaces de usuario. Cuento con conocimiento sólidos en PHP, JavaScript, CSS y html. Me dedico a disñar interfaces para sitios web, iconos y logos.
+    <p class="descripcion-sobre"
+        data-es="Soy desarrollador y mí pasión es el desarrollo weby diseño de iconografía e interfaces de usuario. Cuento con conocimientos sólidos en PHP, JavaScript, CSS y html. Me dedico a diseñar interfaces para sitios web, iconos y logos."
+        data-en="I'm a developer, and my passion is web development and the design of icons and user interfaces. I have a solid foundation in PHP, JavaScript, CSS, and HTML. I specialize in designing website interfaces, icons, and logos.">
+        Soy desarrollador y mí pasión es el desarrollo weby diseño de iconografía e interfaces de usuario. Cuento con conocimientos sólidos en PHP, JavaScript, CSS y html. Me dedico a diseñar interfaces para sitios web, iconos y logos.
 </p>
+
+<section class="habilidades" id="habilidades">
+
+<div class="habilidades">
+    <h2 data-es="MIS HABILIDADES" data-en="MY SKILLS">MIS HABILIDADES</h2>
+    <p class="descripcion-habilidades"
+    data-es="Mis conocimientos en el area de programación"
+    data-en="My knowledge in the programming field">
+        Mis habilidades en el area de programación
+</p>
+
+<div class="grid-habilidades">
+
+<!-- Bootstrap -->
+<div class="columna">
+
+    <div class="habilidad">
+        <img src="imagenes/bootstraplogo.png">
+        <div>
+            <span>BOOTSTRAP</span>
+            <div class="barra"><div class="progreso" style="width:80%"></div></div>
+    </div>
+</div>
+
+<!-- HTML -->
+<div class="habilidad">
+    <img src="imagenes/htmllogo.png">
+    <div>
+        <span>HTML</span>
+        <div class="barra"><div class="progreso" style="width:70%"></div></div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<div class="habilidad">
+    <img src="imagenes/jslogo.png">
+    <div>
+        <span>JAVASCRIPT</span>
+        <div class="barra"><div class="progreso" style="width:70%"></div></div>
+    </div>
+</div>
+</div>
+
+<div class="columna">
+
+<!-- PHP -->
+    <div class="habilidad">
+        <img src="imagenes/phplogo.png">
+        <div>
+            <span>PHP</span>
+            <div class="barra"><div class="progreso" style="width:75%"></div></div>
+        </div>
+    </div>
+
+    <!-- CSS -->
+    <div class="habilidad">
+        <img src="imagenes/csslogo.png">
+        <div>
+            <span>CSS</span>
+            <div class="barra"><div class="progreso" style="width:75%"></div></div>
+        </div>
+    </div>
+
+    <!-- MySQL -->
+    <div class="habilidad">
+        <img src="imagenes/mysqllogo.png">
+        <div>
+            <span>MYSQL</span>
+            <div class="barra"><div class="progreso" style="width:75%"></div></div>
+        </div>
+    </div>
+
+</div>
+</div>
+</div>
 </section>
 
     <section class="cuadro-decorativo"></div>
 </section>
 
+<section class="proyectos" id="proyectos">
+
+    <h2 data-es="PROYECTOS"
+    data-en="PROJECTS"class="titulo-proyectos">PROYECTOS</h2>
+    
+
+    <p class="subtitulo-proyectos"
+        data-es="Proyectos desarrollados a lo largo de mí carrera Ingeniería en Sistemas y Redes Informáticas"
+        data-en="Projects developed throughout my career in Computer Systems and Networks Engineering">
+        Proyectos desarrollados a lo largo de mí carrera Ingeniería en Sistemas y Redes Informáticas
+    </p>
+
+   
+<!-- PROYECTO SIVAR TOURS -->
+<div class="proyecto-item">
+
+    <!-- INFORMACIÓN DEL PROYECTO -->
+    <div class="proyecto-contenido">
+
+        <div class="proyecto-info">
+
+            <h3 class="proyecto-titulo">
+                SIVAR TOURS
+            </h3>
+
+            <p class="descripcion-proyecto"
+                data-es="Aplicación móvil enfocada a la búsqueda de lugares turísticos de El Salvador y contrato de transporte.
+
+                La aplicación permite que el usuario pueda hacer la búsqueda de lugares turísticos del país, los cuales se filtran por diferentes categorías como: miradores, senderismo, plazas, parques, balnearios, playas, etc."
+                
+                data-en="A mobile application focused on finding tourist destinations in El Salvador and transportation booking.
+
+                The application allows users to search for tourist destinations throughout the country, filtered by different categories such as viewpoints, hiking trails, plazas, parks, spas, beaches, etc.">
+
+                Aplicación móvil enfocada a la búsqueda de lugares turísticos de El Salvador y contrato de transporte.
+
+                La aplicación permite que el usuario pueda hacer la búsqueda de lugares turísticos del país, los cuales se filtran por diferentes categorías como: miradores, senderismo, plazas, parques, balnearios, playas, etc.
+
+            </p>
+
+            <!-- SEPARADOR DE INFORMACIÓN -->
+            <div class="separador-proyecto"></div>
+
+            <!-- CARACTERÍSTICAS -->
+            <div class="caracteristicas-proyecto">
+
+                <div class="caracteristica">
+                    <img src="imagenes/web.png" alt="Aplicación web">
+
+                    <span
+                        data-es="APLICACIÓN WEB"
+                        data-en="WEB APPLICATION">
+                        APLICACIÓN WEB
+                    </span>
+                </div>
+
+                <div class="caracteristica">
+                    <img src="imagenes/educativo.png" alt="Educativo">
+
+                    <span
+                        data-es="EDUCATIVO"
+                        data-en="EDUCATIONAL">
+                        EDUCATIVO
+                    </span>
+                </div>
+
+                <div class="caracteristica">
+                    <img src="imagenes/turismo.png" alt="Turismo y exploración">
+
+                    <span
+                        data-es="TURISMO Y EXPLORACIÓN"
+                        data-en="TOURISM AND EXPLORATION">
+                        TURISMO Y EXPLORACIÓN
+                    </span>
+                </div>
+
+                <div class="caracteristica">
+                    <img src="imagenes/finalizado.png" alt="Finalizado">
+
+                    <span
+                        data-es="FINALIZADO"
+                        data-en="COMPLETED">
+                        FINALIZADO
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- BOTONES -->
+            <div class="botones-proyecto">
+
+                <!-- GITHUB -->
+                <a href="https://github.com/JosueInge/SivarTours.git"
+                   class="btn-repositorio"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    <span
+                        data-es="EXPLORAR REPOSITORIO"
+                        data-en="VIEW REPOSITORY">
+                        EXPLORAR REPOSITORIO
+                    </span>
+
+                    <img src="imagenes/githublogo.png" alt="GitHub">
+
+                </a>
+
+                <!-- DEMOSTRACIÓN -->
+                <button class="btn-demostracion"
+                        onclick="abrirGaleria([
+                            'imagenes/sivartours-demo01.png',
+                            'imagenes/sivartours-demo02.png',
+                            'imagenes/sivartours-demo03.png'
+                        ])">
+
+                    <img src="imagenes/demostracion.png" alt="Ver demostración">
+
+                    <span
+                        data-es="DEMOSTRACIÓN"
+                        data-en="DEMONSTRATION">
+                        DEMOSTRACIÓN
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- IMAGEN DEL PROYECTO -->
+        <div class="proyecto-imagen">
+
+            <img src="imagenes/sivartours.png"
+                 alt="Sivar Tours">
+
+        </div>
+
+    </div>
+
+    <!-- SEPARADOR ENTRE PROYECTOS -->
+    <div class="separador-final-proyecto"></div>
+
+</div>
+        <!-- PROYECTO MI SUELDITO -->
+
+<div class="proyecto-item">
+
+    <!-- INFORMACIÓN DEL PROYECTO -->
+    <div class="proyecto-contenido">
+
+        <div class="proyecto-info">
+
+            <h3 class="proyecto-titulo">
+                MI SUELDITO
+            </h3>
+
+             <p class="descripcion-proyecto"
+            data-es="MI SUELDITO es una aplicación web enfocada en el cálculo salarial en El Salvador.
+
+            Su proposito es realizar el cálculo tanto del sueldo salarial y cálculo del mismo en base al libro diario."
+            data-en="MI SUELDITO is a web application focused on salary calculation in El Salvador.
+
+            Its purpose is to calculate both salary and payroll based on the general ledger.">
+            MI SUELDITO es una aplicación web enfocada en el cálculo salarial en El Salvador.
+
+            Su proposito es realizar el cálculo tanto del sueldo salarial y cálculo del mismo en base al libro diario.        
+        </p>
+
+            <!-- SEPARADOR DE INFORMACIÓN -->
+            <div class="separador-proyecto"></div>
+
+            <!-- CARACTERÍSTICAS -->
+            <div class="caracteristicas-proyecto">
+
+                <div class="caracteristica">
+                    <img src="imagenes/web.png" alt="Aplicación web">
+
+                    <span
+                        data-es="APLICACIÓN WEB"
+                        data-en="WEB APPLICATION">
+                        APLICACIÓN WEB
+                    </span>
+                </div>
+
+                <div class="caracteristica">
+                    <img src="imagenes/educativo.png" alt="Educativo">
+
+                    <span
+                        data-es="EDUCATIVO"
+                        data-en="EDUCATIONAL">
+                        EDUCATIVO
+                    </span>
+                </div>
+
+                <div class="caracteristica">
+                    <img src="imagenes/calcular.png" alt="CALCULOS SALARIALES">
+
+                    <span
+                        data-es="CALCULOS SALARIALES"
+                        data-en="SALARY CALCULATIONS">
+                        CALCULOS SALARIALES
+                    </span>
+                </div>
+
+                <div class="caracteristica">
+                    <img src="imagenes/finalizado.png" alt="Finalizado">
+
+                    <span
+                        data-es="FINALIZADO"
+                        data-en="COMPLETED">
+                        FINALIZADO
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- BOTONES -->
+            <div class="botones-proyecto">
+
+                <!-- GITHUB -->
+                <a href="https://github.com/JosueInge/SivarTours.git"
+                   class="btn-repositorio"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    <span
+                        data-es="EXPLORAR REPOSITORIO"
+                        data-en="VIEW REPOSITORY">
+                        EXPLORAR REPOSITORIO
+                    </span>
+
+                    <img src="imagenes/githublogo.png" alt="GitHub">
+
+                </a>
+
+                <!-- DEMOSTRACIÓN -->
+                <button class="btn-demostracion"
+                        onclick="abrirGaleria([
+                            'imagenes/mi_sueldito/demo1.png',
+                            'imagenes/mi_sueldito/demo2.png',
+                            'imagenes/mi_sueldito/demo3.png'
+                        ])">
+
+                    <img src="imagenes/demostracion.png" alt="Ver demostración">
+
+                    <span
+                        data-es="DEMOSTRACIÓN"
+                        data-en="DEMONSTRATION">
+                        DEMOSTRACIÓN
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- IMAGEN DEL PROYECTO -->
+        <div class="proyecto-imagen">
+
+            <img src="imagenes/misueldito.png"
+                 alt="MI SUELDITO">
+
+        </div>
+
+    </div>
+
+    <!-- SEPARADOR ENTRE PROYECTOS -->
+    <div class="separador-final-proyecto"></div>
+
+</div>
+
+<!-- PROYECTO COMUNICADO DIGITAL -->
+
+<div class="proyecto-item">
+
+    <!-- INFORMACIÓN DEL PROYECTO -->
+    <div class="proyecto-contenido">
+
+        <div class="proyecto-info">
+
+            <h3 class="proyecto-titulo">
+               COMUNICADO DIGITAL
+            </h3>
+
+              <p class="descripcion-proyecto"
+            data-es="Aplicación web destinada para publicación de noticias comunitarias."
+            data-en="Web application intended for publishing community news.">
+            Aplicación web destinada para publicación de noticias comunitarias.
+        </p>
+
+            <!-- SEPARADOR DE INFORMACIÓN -->
+            <div class="separador-proyecto"></div>
+
+            <!-- CARACTERÍSTICAS -->
+            <div class="caracteristicas-proyecto">
+
+                <div class="caracteristica">
+                    <img src="imagenes/web.png" alt="Aplicación web">
+
+                    <span
+                        data-es="APLICACIÓN WEB"
+                        data-en="WEB APPLICATION">
+                        APLICACIÓN WEB
+                    </span>
+                </div>
+
+                <div class="caracteristica">
+                    <img src="imagenes/educativo.png" alt="Educativo">
+
+                    <span
+                        data-es="EDUCATIVO"
+                        data-en="EDUCATIONAL">
+                        EDUCATIVO
+                    </span>
+                </div>
+
+                <div class="caracteristica">
+                    <img src="imagenes/noticias.png" alt="NOTICIAS COMUNITARIAS">
+
+                    <span
+                        data-es="NOTICIAS COMUNITARIAS"
+                        data-en="COMMUNITY NEWS">
+                        NOTICIAS COMUNITARIAS
+                    </span>
+                </div>
+
+                <div class="caracteristica">
+                    <img src="imagenes/finalizado.png" alt="Finalizado">
+
+                    <span
+                        data-es="FINALIZADO"
+                        data-en="COMPLETED">
+                        FINALIZADO
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- BOTONES -->
+            <div class="botones-proyecto">
+
+                <!-- GITHUB -->
+                <a href="https://github.com/JosueInge/Enginer-Team"
+                   class="btn-repositorio"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    <span
+                        data-es="EXPLORAR REPOSITORIO"
+                        data-en="VIEW REPOSITORY">
+                        EXPLORAR REPOSITORIO
+                    </span>
+
+                    <img src="imagenes/githublogo.png" alt="GitHub">
+
+                </a>
+
+                <!-- DEMOSTRACIÓN -->
+                <button class="btn-demostracion"
+                        onclick="abrirGaleria([
+                            'imagenes/sivartours-demo01.png',
+                            'imagenes/sivartours-demo02.png',
+                            'imagenes/sivartours-demo03.png'
+                        ])">
+
+                    <img src="imagenes/demostracion.png" alt="Ver demostración">
+
+                    <span
+                        data-es="DEMOSTRACIÓN"
+                        data-en="DEMONSTRATION">
+                        DEMOSTRACIÓN
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- IMAGEN DEL PROYECTO -->
+        <div class="proyecto-imagen">
+
+            <img src="imagenes/comunicadodigital.png"
+                 alt="COMUNICADO DIGITAL">
+
+        </div>
+
+    </div>
+
+    <!-- SEPARADOR ENTRE PROYECTOS -->
+    <div class="separador-final-proyecto"></div>
+
+</div>
+
+<!-- PROYECTO TIENDA EN LINEA-->
+
+<div class="proyecto-item">
+
+    <!-- INFORMACIÓN DEL PROYECTO -->
+    <div class="proyecto-contenido">
+
+        <div class="proyecto-info">
+
+            <h3 class="proyecto-titulo">
+               JS  TECHNOLOGY FOX - SHOP
+            </h3>
+
+              <p class="descripcion-proyecto"
+            data-es="Aplicación web enfocada en una tienda en linea de productos relacionados con la tecnología.
+            JS Technology Fox Shop es un proyecto que se encuentra en desarrollo, el cual esta enfocado en una tienda en linea donde podrás visualizar los artículos disponibles y realizar una compra desde la plataforma."
+
+            data-en="Web application focused on an online store for technology-related products.
+            JS Technology Fox Shop is a project that is under development, which is focused on an online store where you can view the available items and make a purchase directly from the platform.">
+        </p>
+
+         <p class="descripcion-proyecto"
+            data-es="Solo basta con buscar, agregar al carrito y realizar el pedido. Con este sistema no necesitaras salir de tu casa ya que el producto llegara hasta tu puerta. Y lo mejor que no necesitas de una tarjeta de credito o debido, cancelaras tu pedido al recibir para brindarte una compra segura."
+            data-en="You just need to search, add to the cart, and place the order. With this system, you won't need to leave your house since the product will arrive at your door. And the best part is that you don’t need a credit or debit card; you’ll pay for your order upon delivery to give you a safe purchase.">
+
+        </p>
+
+            <!-- SEPARADOR DE INFORMACIÓN -->
+            <div class="separador-proyecto"></div>
+
+            <!-- CARACTERÍSTICAS -->
+            <div class="caracteristicas-proyecto">
+
+                <div class="caracteristica">
+                    <img src="imagenes/web.png" alt="Aplicación web">
+
+                    <span
+                        data-es="APLICACIÓN WEB"
+                        data-en="WEB APPLICATION">
+                        APLICACIÓN WEB
+                    </span>
+                </div>
+
+                <div class="caracteristica">
+                    <img src="imagenes/personal.png" alt="PERSONAL">
+
+                    <span
+                        data-es="PERSONAL"
+                        data-en="PERSONAL">
+                        PERSONAL
+                    </span>
+                </div>
+
+                <div class="caracteristica">
+                    <img src="imagenes/compras.png" alt="COMPRAS EN LINEA">
+
+                    <span
+                        data-es="COMPRAS EN LINEA"
+                        data-en="ONLINE SHOPPING">
+                        COMPRAS EN LINEA
+                    </span>
+                </div>
+
+                <div class="caracteristica">
+                    <img src="imagenes/en_desarrollo.png" alt="En desarrollo">
+
+                    <span
+                        data-es="EN DESARROLLO"
+                        data-en="IN PROGRESS">
+                        EN DESARROLLO
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- BOTONES -->
+            <div class="botones-proyecto">
+
+               
+                <!-- DEMOSTRACIÓN -->
+                <button class="btn-demostracion"
+                        onclick="abrirGaleria([
+                            'imagenes/tienda_online/demo1.png',
+                            'imagenes/tienda_online/demo2.png',
+                            'imagenes/tienda_online/demo3.png'
+                        ])">
+
+                    <img src="imagenes/demostracion.png" alt="Ver demostración">
+
+                    <span
+                        data-es="DEMOSTRACIÓN"
+                        data-en="DEMONSTRATION">
+                        DEMOSTRACIÓN
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- IMAGEN DEL PROYECTO -->
+        <div class="proyecto-imagen">
+
+            <img src="imagenes/logo_fox.png"
+                 alt="TIENDA EN LINEA">
+
+        </div>
+    </div>
+
+    <!-- SEPARADOR ENTRE PROYECTOS -->
+    <div class="separador-final-proyecto"></div>
+
+</div>
+
+        </section>
+        <!-- ================= GALERÍA ================= -->
+
+<div id="modal-galeria" class="modal">
+
+    <span class="cerrar">&times;</span>
+
+    <div class="modal-contenido">
+
+        <img id="imagen-activa" src="" alt="preview">
+
+        <div class="controles">
+            <button id="prev">❮</button>
+            <button id="next">❯</button>
+        </div>
+
+    </div>
+
+</div>
+
+<style>
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+}
+
+.modal-contenido {
+    position: relative;
+    margin: 5% auto;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.modal-contenido img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.cerrar {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.controles {
+    margin-top: 10px;
+}
+
+.controles button {
+    font-size: 30px;
+    padding: 10px 20px;
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+</style>
+
+<script>
+
+let imagenes = [];
+let index = 0;
+
+function abrirGaleria(imgs) {
+    imagenes = imgs;
+    index = 0;
+    document.getElementById("modal-galeria").style.display = "block";
+    mostrarImagen();
+}
+
+function mostrarImagen() {
+    document.getElementById("imagen-activa").src = imagenes[index];
+
+}
+
+document.getElementById("prev").onclick = function() {
+
+    index = (index - 1 + imagenes.length) % imagenes.length;
+    mostrarImagen();
+
+};
+
+document.getElementById("next").onclick = function() {
+
+    index = (index + 1) % imagenes.length;
+    mostrarImagen();
+
+};
+
+document.querySelector(".cerrar").onclick = function() {
+    document.getElementById("modal-galeria").style.display = "none";
+
+};
+
+</script>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-logo">
+
+        <img src="imagenes/logoingeblanco.png" alt="Logo">
+
+        <p class="copyright">
+            © 2026 JosueInge
+        </p>
+
+    </div>
+
+
+    <div class="footer-center">
+
+        <span>
+            PoweredBy: JosueInge
+        </span>
+
+    </div>
+
+
+    <div class="footer-contacto">
+
+        <span
+            class="titulo-contacto"
+            data-es="CONTACTO"
+            data-en="CONTACT">
+            CONTACTO
+        </span>
+
+
+        <div class="footer-redes">
+
+            <a href="https://github.com/JosueInge"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <img src="imagenes/githublogo.png"
+                     alt="GitHub">
+
+            </a>
+
+
+            <a href="https://www.linkedin.com/in/wilfredo-josue-sorto-44a41a3b6/"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <img src="imagenes/linkedinblanco.png"
+                     alt="LinkedIn">
+
+            </a>
+
+
+            <a href="mailto:usss008423@ugb.edu.sv">
+
+                <img src="imagenes/email.png"
+                     alt="Correo">
+
+            </a>
+
+            <a href="tel:+50370613814">
+
+                <img src="imagenes/telefono.png"
+                     alt="Teléfono">
+
+            </a>
+        </div>
+    </div>
+</footer>
+
+<style>
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000;
+    padding: 90px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.footer-logo img {
+    width: 291px;
+    height: 291px;
+    object-fit: contain;
+}
+
+.footer-center {
+    text-align: center;
+    flex: 1;
+}
+
+.footer-center span {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #fff;
+}
+
+.footer-redes {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-redes img {
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.titulo-contacto {
+    font-family: "Arial Black";
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.copyright {
+    color: #fff;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.footer-contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* RESPONSIVE FOOTER */
+
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .footer-logo img {
+        width: 140px;
+        height: auto;
+    }
+
+    .copyright {
+        font-size: 16px;
+    }
+
+    .footer-center {
+        flex: none;
+    }
+
+    .footer-center span {
+        font-size: 16px;
+    }
+
+    .footer-redes {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .footer-redes img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .titulo-contacto {
+        margin-bottom: 15px;
+    }
+
+}
+/* =========================================
+   RESPONSIVE - PROYECTOS
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* CONTENEDOR DEL PROYECTO */
+    .proyecto-item {
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    /* CONTENIDO PRINCIPAL */
+    .proyecto-contenido {
+        width: 100%;
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    /* INFORMACIÓN */
+    .proyecto-info {
+        width: 100%;
+        padding-top: 0;
+        text-align: center;
+    }
+
+    /* TÍTULO */
+    .proyecto-titulo {
+        margin: 40px 0 25px 0 !important;
+        padding-left: 15px !important;
+        display: inline-block;
+        text-align: left;
+    }
+
+    .proyecto-titulo::before {
+        left: 0 !important;
+    }
+
+    /* DESCRIPCIÓN */
+    .descripcion-proyecto {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 20px 0;
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: justify;
+        box-sizing: border-box;
+    }
+
+    /* SEPARADOR INTERNO */
+    .separador-proyecto {
+        width: 80%;
+        max-width: 320px;
+        margin: 20px auto;
+    }
+
+    /* CARACTERÍSTICAS */
+    .caracteristicas-proyecto {
+        width: 100%;
+        margin-left: 0;
+        gap: 14px;
+        align-items: flex-start;
+    }
+
+    .caracteristica {
+        width: 100%;
+        gap: 12px;
+    }
+
+    .caracteristica img {
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+    }
+
+    .caracteristica span {
+        font-size: 14px;
+        text-align: left;
+    }
+
+    /* BOTONES */
+    .botones-proyecto {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin: 30px 0 0 0;
+    }
+
+    /* BOTÓN GITHUB */
+    .btn-repositorio {
+        width: 249px;
+        max-width: 100%;
+        flex-shrink: 0;
+    }
+
+    /* BOTÓN DEMOSTRACIÓN */
+    .btn-demostracion {
+        width: 157px;
+        min-width: 157px;
+        max-width: 100%;
+        padding: 0 15px;
+        flex-shrink: 0;
+    }
+
+    /* IMAGEN DEL PROYECTO */
+    .proyecto-imagen {
+        width: 304px;
+        max-width: 90%;
+        height: auto;
+        aspect-ratio: 304 / 252;
+        margin: 55px auto 0;
+    }
+
+    .proyecto-imagen::before {
+        width: 93%;
+        height: 101%;
+        right: -6%;
+        bottom: -8%;
+    }
+
+    .proyecto-imagen img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* SEPARADOR ENTRE PROYECTOS */
+    .separador-final-proyecto {
+        width: 100%;
+        margin-top: 70px;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE - PANTALLAS PEQUEÑAS
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .proyecto-item {
+        padding: 0 15px;
+    }
+
+    .proyecto-titulo {
+        font-size: 17px;
+        margin-top: 30px !important;
+    }
+
+    .descripcion-proyecto {
+        font-size: 15px;
+    }
+
+    .caracteristica span {
+        font-size: 13px;
+    }
+
+    .btn-repositorio {
+        width: 100%;
+        max-width: 249px;
+    }
+
+    .btn-demostracion {
+        width: 100%;
+        max-width: 249px;
+    }
+
+    .proyecto-imagen {
+        max-width: 95%;
+        margin-top: 45px;
+    }
+
+    .separador-final-proyecto {
+        margin-top: 60px;
+    }
+}
+</style>
+
+        
+
+<script>
+    const btnES = document.getElementById("btn-es");
+    const btnEN = document.getElementById("btn-en");
+
+    const elementos = document.querySelectorAll("[data-es]");
+
+    document.addEventListener("DOMContentLoaded", () => {
+        cambiarIdioma("es");
+    });
+
+    function cambiarIdioma(idioma) {
+
+        elementos.forEach(el => {
+            el.textContent = el.getAttribute("data-" + idioma);
+        });
+
+        const btnCV = document.getElementById("btn-cv");
+
+        if (idioma === "es") {
+            btnCV.href = "docs/cv-josue-es.pdf";
+        } else {
+            btnCV.href = "docs/cv-josue-eng.pdf";
+        }
+
+        btnES.classList.remove("activo");
+        btnEN.classList.remove("activo");
+
+        if (idioma === "es") {
+            btnES.classList.add("activo");
+        } else {
+            btnEN.classList.add("activo");
+        }
+    }
+
+    btnES.addEventListener("click", () => cambiarIdioma("es"));
+    btnEN.addEventListener("click", () => cambiarIdioma("en"));
+    </script>
+</footer>
+        
 </body>
 </html>
-
